@@ -12,7 +12,7 @@ export default function Header() {
             </Head>
             <Layout>
                 <div className = 'header-contents'>
-                    <h1>PoketMonsterスライドショー</h1>
+                    <h1>PoketMonsterIndex</h1>
                     <h2>タネ→１進化→２進化</h2>
                     
                 </div>

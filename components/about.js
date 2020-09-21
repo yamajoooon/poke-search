@@ -12,6 +12,9 @@ const About = () => (
         <Link href="/about/example2">
           <a style={linkStyle}>About</a>
         </Link>
+        <Link href = "/main/list">
+        <a style={linkStyle}>List</a>
+        </Link>
     </div>
 )
 
