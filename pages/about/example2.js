@@ -1,10 +1,10 @@
 // import Head from 'next/head'
-// import Link from 'next/link'
+import Link from 'next/link'
 // import Layout from '../../components/layout'
 import React from "react";
 import Header from '../../components/header'
 import SampleLine from '../../components/exam-graph'
-import Graph from '../../components/exam-graph2'
+import Status from '../../components/exam-graph2.tsx'
 
 
 export default function Example() {
@@ -22,25 +22,40 @@ export default function Example() {
                         </div>
                        
                     </div>
-                    <ul>
-                        <li>タイプ: ドラゴン・アク</li>
-                        <li>特性：　ふゆう</li>
-                    </ul>
+                    <div className = "poke-status">
+                    <table>
+
+                        <tr>
+                        <th>タイプ</th><td>ドラゴン,あく</td>
+                        </tr>
+                        <tr>
+                        <th>特性</th><td>ふゆう</td>
+                        </tr>
+                        <tr>
+                        <th>夢特性</th><td>なし</td>
+                        </tr>
+                        
+                    </table>
+                    </div>
                     <SampleLine />
                 </div>
                 
             </main>
            
-            <Graph />
+            <Status 
+                str="種族値"
+                sp={10}
+                sD={20}
+                sA={30}
+                de={40}
+                at={50}
+                hp={60}
+            />
             <style jsx>{`
                 .slide {
                     margin : 0 auto;
                     border: 1px ;
-                    width: 720px;
-                }
-
-                .slide li{
-                    font-size: 30px;
+                    width: 820px;
                 }
 
                 .poke-img {
@@ -53,11 +68,41 @@ export default function Example() {
                 }
 
                 .img-box{
-                    border: 5px solid black;
-                    background-color: #b0c4de;
-                    background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
-                    -webkit-background-size: 14px 14px;
+                    display: inline-block;
+                    border: 5px ;
+                    background-color: #e0ffff;
+                    width: 45%;
                 }
+
+                .poke-status{
+                    display: inline-block;
+                    width: 50%;
+                    vertical-align : top;
+                    font-size: 30px;
+                    padding: 0px 20px;
+                    
+                }
+                .poke-status table{
+                    border-collapse: collapse;
+                    
+                }
+
+                .poke-status tr{
+                    border-color: silver;
+                    border-style: solid;
+                    border-width: 3px 0;
+                }
+                .poke-status th{
+                    
+                    background-color: #e0ffff;
+                    padding: 26px 5px;
+                }
+                .poke-status td{
+                    padding 20px;
+                    
+                }
+
+
             `}</style>
         </>
 

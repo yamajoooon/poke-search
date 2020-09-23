@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
+import About from '../../components/about';
+import Hearder from '../../components/header';
 
 const List = props => {
     return (
         <>
-          <h1>ポケモン図鑑</h1>
-          
+          <Hearder />
+          <About />
           <ul>
             {props.pokedatas.map(pokedata => (
               <li key={pokedata.no}>

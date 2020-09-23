@@ -21,7 +21,6 @@ export default function Example() {
                         <li>特性：　ふゆう</li>
                     </ul>
 
-
                 </div>
             </main>
 
@@ -49,7 +48,7 @@ export default function Example() {
 
                 .img-box{
                     border: 5px solid black;
-                    background-color: #b0c4de;
+                    background-color: #e0ffff;
                     background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
                     -webkit-background-size: 14px 14px;
                 }
