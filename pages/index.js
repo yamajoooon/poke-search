@@ -3,34 +3,69 @@ import Link from 'next/link'
 import Layout from '../components/layout'
 import About from '../components/about'
 import Counter from '../components/counter'
-import ImgChanger from '../components/imageChanger'
+import ImgChanger from '../components/imgChangerHandle'
 import Header from '../components/header'
+import Pokelink from '../components/pokelink'
+import ImgChangerOut from '../components/imgChangerOut'
+import Example from '../components/pose'
 
 export default function Home() {
+  
+  const linkList = [
+      {
+          name: "ポケモン図鑑",
+          image: '/images/rotoroto.png',
+          link: '/main/list'
+      },
+      {
+        name: "公式サイト",
+        image: '/images/pika.png',
+        link: 'https://www.pokemon.co.jp/'
+      },
+      {
+        name: "アプリについて",
+        image: '/images/yadon.png',
+        link: '/about/example2'
+      }
+
+  ]
   return (
         <div>
             <Header />
-        <main>
-            <Counter />
-            <About />
-            
-            <ImgChanger />
-            <div className="slide">
-                <div className = "image_box">
-                    <img id = "main_image" src = "/pokelist/image1.jpg"/>
+            <div className = "Main-wrapper">
+                <div className = 'Main'>
+                    {/* <div className = "poseposition">
+                        <Example />
+                    </div> */}
                     
-                </div>
-                <div className = "toolbar">
-                    <div className = "nav">
-                        <div id = "prev"></div>
-                        <div id = "next"></div>
+                    {/* <Counter />
+                    <About /> */}
+                    <ImgChangerOut />
+                    
+                    {/* <ImgChanger /> */}
+                    <div className='lesson-container'>
+                        {linkList.map((pokeItem) => {
+                        return (
+                                <Pokelink
+                                    name={pokeItem.name}
+                                    image={pokeItem.image}
+                                    link={pokeItem.link}
+                                />
+                            
+                        );
+                    })}
                     </div>
                 </div>
             </div>
-        </main>
+            
+        
         <footer>JavaScriptSamples</footer>
 
         <style　jsx>{`
+            .poseposition {
+                padding: 20px 80px;
+            }
+
             .slide {
                 margin : 0 auto;
                 border: 1px solid black;
@@ -133,26 +168,26 @@ export default function Home() {
                 text-decoration: underline;
             }
 
-            @media (max-width: 600px){
-                .header{
-                    background-position: 32% 50%;
-                    border-top: #20567d 5px solid;
-                }
-                .header-contents{
-                    min-height: 60px;
-                    background-size: 40px 40px;
-                    background-position: 10px 50%;
-                }
-                .header-contents h1{
-                    padding: 15px 0 5px 55px;
-                    font-size: 16px;
-                }
-                .header-contents h2{
-                    padding: 0 0 0 55px;
-                    font-size: 12px;
-                }
+            .lesson-container {
+                margin-top: 20px;
+                
+            }
+
+            .Main-wrapper {
+                background-color: #f4fafa;
+            }
+              
+            .Main {
+                max-width: 1040px;
+                padding: 20px 50px;
+            }
+
+
+
+                
         `}</style>
     </div>
     )
 
 }
+

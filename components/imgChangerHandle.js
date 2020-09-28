@@ -16,9 +16,7 @@ class Changer extends Component
             images: ['/pokelist/image1.jpg',
                      '/pokelist/image2.jpg',
                      '/pokelist/image3.jpg',
-                     '/pokelist/image4.jpg',
-                     '/pokelist/image5.jpg']
-        
+                    ]
         }
     }
 
@@ -30,13 +28,22 @@ class Changer extends Component
     }
 
     evolution = () =>{
-        this.setState({value: this.state.value +1});
-        //this.changeGene(1);
+        if(this.state.value +1 < this.state.images.length){
+            this.setState({value: this.state.value +1});
+            //this.changeGene(1);
+        }
+        
     }
 
     degeneration = () =>{
-        this.setState({value: this.state.value -1});
-        //this.changeGene(-1);
+        if(1 <= this.state.value){
+            this.setState({value: this.state.value -1});
+            //this.changeGene(-1);
+        }
+    }
+
+    dekoi = () => {
+
     }
 
     render(){
@@ -59,9 +66,6 @@ class Changer extends Component
     }
 
 }
-
-
-
 
 
 export default ImgChanger
