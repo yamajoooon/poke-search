@@ -47,7 +47,7 @@ const Pokedata = props => (
           
       </main>
     
-    <Link href="../main/list">
+    <Link href="../main/search">
       <a>Home</a>
     </Link>
 

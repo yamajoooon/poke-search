@@ -12,7 +12,7 @@ const About = () => (
         <Link href="/about/example2">
           <a style={linkStyle}>About</a>
         </Link>
-        <Link href = "/main/list">
+        <Link href = "/main/search">
         <a style={linkStyle}>List</a>
         </Link>
     </div>

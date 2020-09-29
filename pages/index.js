@@ -15,7 +15,7 @@ export default function Home() {
       {
           name: "ポケモン図鑑",
           image: '/images/rotoroto.png',
-          link: '/main/list'
+          link: '/main/search'
       },
       {
         name: "公式サイト",
