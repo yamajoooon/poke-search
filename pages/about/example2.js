@@ -16,6 +16,9 @@ export default function Example() {
             <main>
                 <div className = "slide">
                     <h1>No.635 サザンドラ</h1>
+                    <div className='prev'>
+                        <img src="/images/prev.png" />
+                    </div>
                     <div className = "img-box">
                         <div className = "poke-img">
                             <img src = "/pokelist/635.png"/>
@@ -37,7 +40,12 @@ export default function Example() {
                         
                     </table>
                     </div>
+                    <div className='next'>
+                        <img src="/images/next.png" />
+                    </div>
+
                     <SampleLine />
+                    
                 </div>
                 
             </main>
@@ -67,16 +75,25 @@ export default function Example() {
                     height: 300px;
                 }
 
+                .prev{
+                    display: inline-block;
+                }
+
+                .next{
+                    display: inline-block;
+                }
+
+
                 .img-box{
                     display: inline-block;
                     border: 5px ;
                     background-color: #e0ffff;
-                    width: 45%;
+                    width: 40%;
                 }
 
                 .poke-status{
                     display: inline-block;
-                    width: 50%;
+                    width: 40%;
                     vertical-align : top;
                     font-size: 30px;
                     padding: 0px 20px;

@@ -12,6 +12,11 @@ const Pokedata = props => (
       <main>
           <div className = "slide">
               <h1>No.{props.pokedata.no} {props.pokedata.name}</h1>
+              <Link href="/pokedata/[no]" as={`/pokedata/${props.pokedata.no - 1}`}>
+                <div className='prev'>
+                          <img src="/images/prev.png" />
+                </div>
+              </Link>
               <div className = "img-box">
                   <div className = "poke-img">
                       <img src = {props.str}/>
@@ -33,6 +38,12 @@ const Pokedata = props => (
 
               </table>
               </div>
+              <Link href="/pokedata/[no]" as={`/pokedata/${props.pokedata.no + 1}`}>
+                <div className='next'>
+                  <img src="/images/next.png" />
+                </div>
+              </Link>
+
               <Status 
                 str="種族値"
                 sp={props.pokedata.stats.speed}
@@ -58,6 +69,16 @@ const Pokedata = props => (
         width: 820px;
       }
 
+      .prev{
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .next{
+          display: inline-block;
+          cursor: pointer;
+      }
+
       .poke-img {
         text-align : center
       }
@@ -71,12 +92,12 @@ const Pokedata = props => (
         display: inline-block;
         border: 5px ;
         background-color: #e0ffff;
-        width: 45%;
+        width: 40%;
       }
 
       .poke-status{
         display: inline-block;
-        width: 50%;
+        width: 45%;
         vertical-align : top;
         font-size: 30px;
         padding: 0px 20px;
