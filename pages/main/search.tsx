@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
-import About from '../../components/about';
+import About from '../../components/develop/about';
 import Hearder from '../../components/header';
 
 
 class App extends Component {
-  constructor() {
-    super() 
+  constructor(props: {}) {
+    super(props) 
     this.state = {
       
       items: [],
@@ -24,8 +24,6 @@ class App extends Component {
         pokedatas: data
     }
   }
-
-
 
   componentDidMount() {
     this.setState({items: this.props.pokedatas})
@@ -58,8 +56,6 @@ class App extends Component {
                 )  
                 })}
             </div>
-      
-
         </div>
     );
   }

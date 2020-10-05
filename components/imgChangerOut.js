@@ -38,7 +38,7 @@ class Changer extends Component
     }
 
     componentDidMount() {                                  // （5）
-        this.interval = setInterval(() => this.countUp(), 4000);
+        this.interval = setInterval(() => this.countUp(), 3000);
     }
 
     // componentWillUnmount() {                              // （6）
@@ -59,8 +59,8 @@ class Changer extends Component
                     </div>
                     <style jsx>{`
                         .image-back img{
-                            height: 550px;
-                            width: 800px;
+                            height: 360px;
+                            width: 600px;
                         }
                     
                     `}</style>

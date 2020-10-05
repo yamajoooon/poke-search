@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
-import About from '../../components/about';
+import About from '../../components/develop/about';
 import Hearder from '../../components/header';
 
 const List = props => {

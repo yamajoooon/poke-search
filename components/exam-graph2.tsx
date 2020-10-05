@@ -3,7 +3,10 @@ import { XYPlot, LineSeries,HorizontalBarSeries,XAxis, YAxis,VerticalGridLines,H
 
 
 interface Props{
-  str: string
+  // str: string
+  hp: number;
+
+
 }
 
 class Status extends React.Component

@@ -1,5 +1,5 @@
 import styles from './layout.module.css'
-import Header from './about'
+import Header from './develop/about'
 
 function Layout({ children }) {
     return (
