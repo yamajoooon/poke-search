@@ -1,7 +1,8 @@
 import fetch from 'isomorphic-unfetch';
 import Link from 'next/link';
 import Header from '../../components/header'
-import SampleLine from '../../components/exam-graph'
+import { SettingsDialog} from '../../components/modal/pokemodal'
+import Sample  from '../../components/modal/pokemodal2'
 import Status from '../../components/exam-graph2'
 import { NextPage } from "next";
 import React from "react";
@@ -10,11 +11,26 @@ import React from "react";
 interface Props{
   // str: string
   hp: number;
+  at: number;
+  de: number;
+  sA: number;
+  sD: number;
+  sp: number;
+  pokedata: any;
+  str: string;
 }
 
-class Pokedata extends React.Component
+interface State {
+  isDialogOpen: boolean;
+  date: { 
+          x: any; 
+          y: string; 
+        }[]
+}
+
+class Pokedata extends React.Component< Props,State>
 {
-  constructor(props:Props){
+  constructor(props: Props){
     super(props);
     this.state = {
       date: [
@@ -25,7 +41,8 @@ class Pokedata extends React.Component
         { x: this.props.sD, y: 'sD' },
         { x: this.props.sp, y: 'sp' },
         
-      ]
+      ],
+      isDialogOpen: false,
     }
   }
 
@@ -49,12 +66,20 @@ class Pokedata extends React.Component
       };
   }
   
-  render(){
+  render() :React.ReactNode {
   return(
     console.log("ssssssss"),
   <>
       <Header />
       <main>
+          <Sample 
+            sp={this.props.pokedata.stats.speed}
+            sD={this.props.pokedata.stats.spDefence}
+            sA={this.props.pokedata.stats.spAttack}
+            de={this.props.pokedata.stats.defence}
+            at={this.props.pokedata.stats.attack}
+            hp={this.props.pokedata.stats.hp}
+          />
           <div className = "slide">
               <h1>No.{this.props.pokedata.no} {this.props.pokedata.name}</h1>
               <Link href="/pokedata/[no]" as={`/pokedata/${this.props.pokedata.no - 1}`}>
@@ -62,7 +87,9 @@ class Pokedata extends React.Component
                           <img src="/images/prev.png" />
                 </div>
               </Link>
-              <div className = "img-box">
+              <div className = "img-box" onClick={this.openDialog}>
+          
+              {/* <SettingsDialog isOpen={this.state.isDialogOpen} onClose={this.closeDialog} /> */}
                   <div className = "poke-img">
                       <img src = {this.props.str}/>
                   </div>
@@ -170,6 +197,15 @@ class Pokedata extends React.Component
     `}</style>
   </>
   );
+  }
+  // ダイアログを開く
+  private openDialog = () => {
+    this.setState({isDialogOpen: true});
+  }
+
+  // ダイアログからのコールバックでダイアログを閉じてあげる
+  private closeDialog = () => {
+    this.setState({isDialogOpen: false});
   }
 }
 

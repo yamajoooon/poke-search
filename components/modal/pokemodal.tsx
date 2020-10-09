@@ -1,11 +1,19 @@
 import * as React from 'react';
 import ReactModal from 'react-modal';
+import { useStyles } from "./pokemodal.style";
 
 interface Props {
   /** このダイアログを表示するなら true */
   isOpen: boolean;
   /** このダイアログを閉じるときのコールバック */
   onClose?: () => void;
+
+  hp: number;
+  at: number;
+  de: number;
+  sA: number;
+  sD: number;
+  sp: number;
 }
 
 interface State {
@@ -21,9 +29,14 @@ export class SettingsDialog extends React.Component<Props, State> {
 
     // 具体的に #root 要素などを指定した方がよい？
     ReactModal.setAppElement('body');
+    //const classes = useStyles();
   }
 
+  
+
   public render(): React.ReactNode {
+    const classes = useStyles;
+
     return <div>
       <ReactModal
         isOpen={this.props.isOpen}
@@ -33,11 +46,50 @@ export class SettingsDialog extends React.Component<Props, State> {
         contentLabel="Settings"
       >
         <form onSubmit={this.handleSubmit}>
-          <label>ユーザー名
+          <label>ニックネーム
             <input type="text" autoFocus value={this.state.username}
               onChange={this.handleChangeUsername}></input>
           </label>
         </form>
+        <div>
+            {/* <h3>種族値</h3>
+            <ul>
+            <li>HP{this.props.hp}</li>
+            <li>AT{this.props.at}</li>
+            <li>DE{this.props.de}</li>
+            <li>SA{this.props.sA}</li>
+            <li>SD{this.props.sD}</li>
+            <li>SP{this.props.sp}</li>
+            </ul> */}
+            <table className = {classes.botTable}> 
+                <tbody>
+                    <tr className = {classes.botTableRow}>
+                        <th>サーバー名</th>
+                        <td>{this.props.hp}</td>
+                    </tr>
+                    <tr className = {classes.botTableRow}>
+                        <th>取引所</th>
+                        <td>{this.props.at}</td>
+                    </tr>
+                    <tr className = {classes.botTableRow}>
+                        <th>APIキー</th>
+                        <td>{this.props.de}</td>
+                    </tr>
+                    <tr className = {classes.botTableRow}>
+                        <th>シークレットキー</th>
+                        <td>{this.props.sD}</td>
+                    </tr>
+                    <tr className = {classes.botTableRow}> 
+                        <th>通貨ペア</th>
+                        <td></td>
+                    </tr>
+                    <tr className = {classes.botTableRow}>
+                        <th>注文幅(%)</th>
+                        <td>{this.props.sp}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
       </ReactModal>
     </div>;
   }

@@ -33,7 +33,7 @@ export class SettingsDialog extends React.Component<Props, State> {
         contentLabel="Settings"
       >
         <form onSubmit={this.handleSubmit}>
-          <label>ユーザー名
+          <label>ニックネーム
             <input type="text" autoFocus value={this.state.username}
               onChange={this.handleChangeUsername}></input>
           </label>
