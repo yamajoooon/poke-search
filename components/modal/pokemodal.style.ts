@@ -47,6 +47,7 @@ export const useStyles = makeStyles((theme) => ({
     button: {
         height: 40,
         width: 160,
+        margin: theme.spacing(4,2,1,0),
     },
     buttonPosition: {
         padding: theme.spacing(2,10,4,9),

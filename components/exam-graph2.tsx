@@ -1,6 +1,6 @@
 import React from "react";
 import { XYPlot, LineSeries,HorizontalBarSeries,XAxis, YAxis,VerticalGridLines,HorizontalGridLines} from "react-vis";
-
+import Pop from "./help-popper/popper"
 
 interface Props{
   // str: string
@@ -41,8 +41,18 @@ class Status extends React.Component
     
     return(
       <>
-      <div className = "race">
-        <h2>{srrk}</h2>
+      <div className = "help-popper-place">
+        <div>
+          <h2>{srrk}</h2>
+        </div>
+        <div className = "race">
+          <Pop 
+            tittle = "ステータス"
+            content = "上からスピード、特防、特攻、防御、攻撃、HP"
+            placement = 'right-end'
+            href = 'https://www.pokemon.co.jp/'
+          />
+        </div>
       </div>
       <div className = "graph">
         <XYPlot width={600} height={300} yType="ordinal" color = "mediumturquoise">
@@ -67,17 +77,19 @@ class Status extends React.Component
 
       <style jsx>{`
         .graph{
-          padding: 10px;
+          padding: 20px;
         }
 
         .race{
-          
-          width: 20%;
-          text-align : center
+          margin-top: 10px;
         }
         .color{
           background-color: red;
         }
+
+        .help-popper-place{
+          display: flex;
+      }
       `}</style>
     </>
 
